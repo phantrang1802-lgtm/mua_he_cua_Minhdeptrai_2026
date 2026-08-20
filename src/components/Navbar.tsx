@@ -39,11 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-xl transition-all">
+    <header className="sticky top-0 z-40 bg-[#0C0C0C]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Brand Logo & Name */}
+          {/* Brand Logo & Name (Editorial Style) */}
           <div 
             id="brand-logo"
             className="flex items-center gap-3 cursor-pointer group"
@@ -52,41 +52,36 @@ export const Navbar: React.FC<NavbarProps> = ({
               setActiveTab('schedule');
             }}
           >
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 p-0.5 shadow-lg shadow-orange-500/25 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-2xl">
-                ☀️
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 tracking-tight text-xl sm:text-2xl font-display">
-                  SUMMER QUEST
+            <div className="flex items-baseline gap-2.5">
+              <span className="text-2xl sm:text-3xl font-serif italic font-bold tracking-tight text-[#FF6B35]">
+                SOLARIS
+              </span>
+              <div className="flex flex-col">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-light text-white/60">
+                  SUMMER QUEST 2026
                 </span>
-                <span className="px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                  2026
+                <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-[#00FF41] hidden sm:block">
+                  [ ACTIVE CHRONICLES ]
                 </span>
               </div>
-              <p className="text-xs text-slate-400 hidden sm:block">
-                Lịch Trình Mùa Hè Rực Rỡ & Nhật Ký Phiêu Lưu
-              </p>
             </div>
           </div>
 
-          {/* Navigation Mode Tabs */}
-          <div className="hidden md:flex items-center p-1.5 bg-slate-800/80 rounded-2xl border border-slate-700/60 shadow-inner">
+          {/* Navigation Mode Tabs (Minimalist Editorial Underline/Pill Style) */}
+          <div className="hidden md:flex items-center gap-1 border border-white/10 p-1 bg-[#111111] rounded-lg">
             <button
               id="nav-tab-schedule"
               onClick={() => {
                 soundFx.playClick();
                 setActiveTab('schedule');
               }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded text-xs tracking-wider uppercase transition-all ${
                 activeTab === 'schedule'
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                  ? 'bg-[#FF6B35] text-black font-bold shadow-sm'
+                  : 'text-white/70 hover:text-white hover:bg-white/5 font-medium'
               }`}
             >
-              <Sun className="w-4 h-4" />
+              <Sun className="w-3.5 h-3.5" />
               Lịch Tuần Năng Động
             </button>
 
@@ -96,18 +91,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundFx.playClick();
                 setActiveTab('special');
               }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all relative ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded text-xs tracking-wider uppercase transition-all relative ${
                 activeTab === 'special'
-                  ? 'bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white font-bold shadow-md shadow-pink-500/25'
-                  : 'text-pink-300 hover:text-pink-100 hover:bg-pink-950/30'
+                  ? 'bg-gradient-to-r from-[#FF6B35] to-[#D7263D] text-white font-bold shadow-sm'
+                  : 'text-rose-300/80 hover:text-rose-200 hover:bg-white/5 font-medium'
               }`}
             >
-              <span className="animate-spin text-base">🎡</span>
-              Ngày Đi Chơi Đặc Biệt
-              <span className="absolute -top-1.5 -right-1.5 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
-              </span>
+              <span>🎡</span>
+              Ngày Đặc Biệt
+              <span className="w-1.5 h-1.5 bg-[#00FF41] rounded-full animate-ping" />
             </button>
 
             <button
@@ -116,13 +108,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundFx.playClick();
                 setActiveTab('diary');
               }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded text-xs tracking-wider uppercase transition-all ${
                 activeTab === 'diary'
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                  ? 'bg-white text-black font-bold shadow-sm'
+                  : 'text-white/70 hover:text-white hover:bg-white/5 font-medium'
               }`}
             >
-              <BookMarked className="w-4 h-4" />
+              <BookMarked className="w-3.5 h-3.5" />
               Nhật Ký Kỷ Niệm
             </button>
 
@@ -132,13 +124,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundFx.playClick();
                 setActiveTab('stats');
               }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded text-xs tracking-wider uppercase transition-all ${
                 activeTab === 'stats'
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                  ? 'bg-white text-black font-bold shadow-sm'
+                  : 'text-white/70 hover:text-white hover:bg-white/5 font-medium'
               }`}
             >
-              <BarChart3 className="w-4 h-4" />
+              <BarChart3 className="w-3.5 h-3.5" />
               Cân Bằng Mùa Hè
             </button>
           </div>
@@ -147,19 +139,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 sm:gap-3">
             
             {/* Clock Display & Simulation Indicator */}
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/90 border border-slate-700/80 rounded-xl text-xs">
-              <Clock className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <div className="flex items-center gap-2.5 px-3 py-1.5 bg-[#111111] border border-white/10 rounded-lg text-xs">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00FF41] animate-pulse" />
               <div className="flex flex-col text-left">
-                <span className="font-mono font-bold text-amber-300 text-sm leading-none">
-                  {currentTimeString}
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] uppercase font-mono tracking-widest text-white/40">TIME</span>
+                  <span className="font-mono font-bold text-[#FF6B35] text-xs">
+                    {currentTimeString}
+                  </span>
+                </div>
                 {simulatedTime ? (
-                  <span className="text-[10px] text-orange-400 font-medium leading-none mt-0.5">
-                    (Giả lập)
+                  <span className="text-[9px] text-[#FF6B35] font-mono uppercase">
+                    [ SIMULATED ]
                   </span>
                 ) : (
-                  <span className="text-[10px] text-slate-400 leading-none mt-0.5">
-                    Giờ thực tế
+                  <span className="text-[9px] text-white/40 font-mono uppercase">
+                    [ LIVE UTC+7 ]
                   </span>
                 )}
               </div>
@@ -168,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={() => setSimulatedTime(null)}
                   title="Quay lại giờ thực tế"
-                  className="ml-1 p-1 hover:bg-slate-700 text-slate-400 hover:text-white rounded"
+                  className="ml-1 p-1 hover:bg-white/10 text-white/60 hover:text-white rounded"
                 >
                   <RotateCcw className="w-3 h-3" />
                 </button>
@@ -179,10 +174,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="btn-toggle-sound"
               onClick={handleToggleSound}
-              className={`p-2.5 rounded-xl border transition-all ${
+              className={`p-2 rounded-lg border transition-all ${
                 soundEnabled 
-                  ? 'bg-slate-800 text-amber-400 border-amber-500/40 hover:bg-amber-500/10' 
-                  : 'bg-slate-800/50 text-slate-500 border-slate-700 hover:text-slate-300'
+                  ? 'bg-[#111111] text-[#FF6B35] border-[#FF6B35]/40 hover:bg-[#FF6B35]/10' 
+                  : 'bg-[#111111] text-white/30 border-white/10 hover:text-white/60'
               }`}
               title={soundEnabled ? 'Tắt âm thanh hiệu ứng' : 'Bật âm thanh hiệu ứng'}
             >
@@ -196,29 +191,29 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundFx.playClick();
                 onOpenPrintModal();
               }}
-              className="p-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white rounded-xl transition-all shadow-sm flex items-center gap-1.5 text-xs font-semibold"
+              className="p-2 bg-[#111111] hover:bg-white/5 border border-white/10 hover:border-white/30 text-white/90 hover:text-white rounded-lg transition-all flex items-center gap-1.5 text-xs font-mono tracking-wide"
               title="Xuất bảng thời gian biểu / In"
             >
-              <Printer className="w-4 h-4 text-sky-400" />
-              <span className="hidden lg:inline">In Thời Khóa Biểu</span>
+              <Printer className="w-3.5 h-3.5 text-[#FF6B35]" />
+              <span className="hidden lg:inline text-[11px] uppercase tracking-wider">PRINT / PDF</span>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation bar */}
-        <div className="flex md:hidden items-center justify-around py-2 border-t border-slate-800">
+        <div className="flex md:hidden items-center justify-around py-2 border-t border-white/10">
           <button
             onClick={() => {
               soundFx.playClick();
               setActiveTab('schedule');
             }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-[11px] uppercase tracking-wider font-semibold ${
               activeTab === 'schedule'
-                ? 'bg-amber-500 text-slate-950 font-bold'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#FF6B35] text-black font-bold'
+                : 'text-white/60 hover:text-white'
             }`}
           >
-            <Sun className="w-3.5 h-3.5" />
+            <Sun className="w-3 h-3" />
             Lịch Tuần
           </button>
 
@@ -227,10 +222,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundFx.playClick();
               setActiveTab('special');
             }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-[11px] uppercase tracking-wider font-semibold ${
               activeTab === 'special'
-                ? 'bg-pink-500 text-white font-bold'
-                : 'text-pink-400 hover:text-pink-300'
+                ? 'bg-[#D7263D] text-white font-bold'
+                : 'text-rose-400 hover:text-rose-300'
             }`}
           >
             🎡 Đi Chơi
@@ -241,14 +236,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundFx.playClick();
               setActiveTab('diary');
             }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-[11px] uppercase tracking-wider font-semibold ${
               activeTab === 'diary'
-                ? 'bg-cyan-500 text-slate-950 font-bold'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-white text-black font-bold'
+                : 'text-white/60 hover:text-white'
             }`}
           >
-            <BookMarked className="w-3.5 h-3.5" />
-            Kỷ Niệm
+            <BookMarked className="w-3 h-3" />
+            Nhật Ký
           </button>
 
           <button
@@ -256,13 +251,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundFx.playClick();
               setActiveTab('stats');
             }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-[11px] uppercase tracking-wider font-semibold ${
               activeTab === 'stats'
-                ? 'bg-emerald-500 text-slate-950 font-bold'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-white text-black font-bold'
+                : 'text-white/60 hover:text-white'
             }`}
           >
-            <BarChart3 className="w-3.5 h-3.5" />
+            <BarChart3 className="w-3 h-3" />
             Thống Kê
           </button>
         </div>
